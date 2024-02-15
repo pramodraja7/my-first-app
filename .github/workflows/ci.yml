@@ -27,7 +27,11 @@ jobs:
           npm ci
           npm run build
 
-      - name: deploy
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: build
+      - name: Deploy
+        run: |
+          git remote set-url origin https://git:${GTIHUB_TOKEN}@github.com/${GITHUB.REPOSITORY}
+          npm run deploy -- -u github-action-bot <support+action@github.com>
+        env:         
+          GTIHUB_TOKEN: ${{ secrets.GTIHUB_TOKEN }}
+          
+         
