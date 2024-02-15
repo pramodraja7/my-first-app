@@ -29,8 +29,8 @@ jobs:
 
       - name: Deploy
         run: |
-          git remote set-url origin https://git:${GTIHUB_TOKEN}@github.com/${GITHUB.REPOSITORY}
-          npm run deploy -- -u github-action-bot <support+action@github.com>
+          git remote set-url origin https://git:${GTIHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          npm run deploy -- -u "github-action-bot <support+action@github.com>"
         env:         
           GTIHUB_TOKEN: ${{ secrets.GTIHUB_TOKEN }}
           
